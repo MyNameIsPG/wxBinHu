@@ -1,0 +1,28 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/indexHome/index",
+        "pages/indexHomeView/index",
+        "pages/indexAddVolunteer/index",
+        "pages/indexAddNotes/index",
+        "pages/indexVolunteerList/index",
+        "pages/indexService/index",
+        "pages/indexUser/index",
+        "pages/indexMyVolunteer/index",
+        "pages/indexMyEvaluate/index",
+        "pages/indexMyActiveList/index",
+        "pages/indexUserMake/index",
+        "pages/indexNews/index",
+        "pages/indexVolunteerManage/index",
+        "pages/indexMyActiveManage/index",
+        "pages/indexMakeManage/index",
+        "pages/indexUserName/index",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "#fff",
+        "navigationBarBackgroundColor": "#26a0f5",
+        "navigationBarTitleText": "志愿者服务平台",
+        "navigationBarTextStyle": "#fff"
+    }
+}

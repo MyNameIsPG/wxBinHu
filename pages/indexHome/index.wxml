@@ -1,0 +1,47 @@
+<view class="indexHome">
+    <view class="bgBanner"></view>
+    <view class="bgBannerBox">
+        <image src="../image/banner.png"></image>
+    </view>
+    <view class="list">
+        <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="环境保护" data-item-uuid="153049720572388">
+            <image src="../image/home/icon1.png"></image>
+            <view>环境保护</view>
+        </view>
+        <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="老人关爱" data-item-uuid="153049724075277">
+            <image src="../image/home/icon2.png"></image>
+            <view>老人关爱</view>
+        </view>
+        <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="手工课堂" data-item-uuid="153049725197393">
+            <image src="../image/home/icon3.png"></image>
+            <view>手工课题</view>
+        </view>
+        <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="科创园地" data-item-uuid="153049726659970">
+            <image src="../image/home/icon4.png"></image>
+            <view>科创园地</view>
+        </view>
+        <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="亲子活动" data-item-uuid="153049728164352">
+            <image src="../image/home/icon5.png"></image>
+            <view>亲子活动</view>
+        </view>
+        <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="家电维修" data-item-uuid="153049730503275">
+            <image src="../image/home/icon6.png"></image>
+            <view>家电维修</view>
+        </view>
+        <view bindtap="clickIndexView" data-item-path="../indexVolunteerList/index" data-item-title="" data-item-uuid="">
+            <image src="../image/home/icon7.png"></image>
+            <view>志愿者列表</view>
+        </view>
+        <view bindtap="clickIndexView" data-item-path="../indexService/index" data-item-title="" data-item-uuid="">
+            <image src="../image/home/icon8.png"></image>
+            <view>预约服务</view>
+        </view>
+        <view bindtap="clickIndexView" data-item-path="../indexUser/index" data-item-title="" data-item-uuid="">
+            <image src="../image/home/icon9.png"></image>
+            <view>管理中心</view>
+        </view>
+    </view>
+    <view class="telBox" bindtap="clickTelUser">
+        <image src="../image/home/tel.png"></image>
+    </view>
+</view>

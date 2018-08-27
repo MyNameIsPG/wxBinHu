@@ -1,0 +1,106 @@
+<view class="listContainer">
+    <view class="bannerContainer">
+        <image src="../image/banner1.png"></image>
+    </view>
+    <view>
+        <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+            <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">团队简介</view>
+            <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">发起项目</view>
+            <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">用户评价</view>
+        </scroll-view>
+        <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}px">
+            <swiper-item>
+                <scroll-view scroll-y="true" class="scoll-h">
+                    <view class="tabBox1">
+                        <p>服务类型：
+                            <span>{{dataListView.type_name}}</span>
+                        </p>
+                        <p>服务区域：
+                            <span>社区</span>
+                        </p>
+                        <p>招募日期：
+                            <span>{{dataListView.recruit_starttime+' 至 '+dataListView.recruit_endtime}}</span>
+                        </p>
+                        <p>服务日期：
+                            <span>{{dataListView.service_time}}</span>
+                        </p>
+                        <p>加入方式：
+                            <span>{{dataListView.join_type}}</span>
+                        </p>
+                        <p>成立时间：
+                            <span>{{dataListView.create_time}}</span>
+                        </p>
+                        <!-- <p>已加入志愿者：
+                            <span>123</span>
+                        </p> -->
+                    </view>
+                    <view class="listBox">
+                        <view class="listBox-hade">
+                            <text>团队简介</text>
+                        </view>
+                        <view class="listBox-body">
+                            <view class="text">
+                                {{dataListView.introduction}}
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view scroll-y="true" class="scoll-h">
+                    <view class="item-ans">
+                        <view class="item-ans-contern">
+                            <view class="avatar">
+                                <image class="img" src="../image/bg1.png"></image>
+                            </view>
+                            <view class="expertInfo">
+                                <view class="name">滨湖湘江之水保护公益活动,滨湖湘 江之水保护公益活动
+                                </view>
+                                <view class="tag">
+                                    <image class="img" src="../image/times.png"></image>
+                                    知名情感博主
+                                </view>
+                                <view class="answerHistory">
+                                    <image class="img" src="../image/place.png"></image>
+                                    河西商业广场河西商业广场河西商业广场河西商业广场
+                                </view>
+                            </view>
+                        </view>
+                        <view class="item-ans-contern">
+                            <view class="avatar">
+                                <image class="img" src="../image/bg1.png"></image>
+                            </view>
+                            <view class="expertInfo">
+                                <view class="name">滨湖湘江之水保护公益活动,滨湖湘 江之水保护公益活动
+                                </view>
+                                <view class="tag">
+                                    <image class="img" src="../image/times.png"></image>
+                                    知名情感博主
+                                </view>
+                                <view class="answerHistory">
+                                    <image class="img" src="../image/place.png"></image>
+                                    河西商业广场河西商业广场河西商业广场河西商业广场
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view scroll-y="true" class="scoll-h">
+                    <view class="itemBox3">
+                        <view class="btnsAdd">
+                            <image src="../image/comment.png"></image>发表评论</view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="btnBox">
+        <view bindtap="addService">
+            <image src="../image/btnAddIcon.png"></image>预约服务</view>
+        <view bindtap="addVolunteer" class="addView">我要申请志愿者</view>
+        <!-- <view bindtap="clickAddBtn" class="addView2">已结束</view> -->
+        <!-- <view bindtap="clickAddBtn" class="addView3">暂未开始</view> -->
+    </view>
+</view>

@@ -1,0 +1,73 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 200rpx 0;
+    box-sizing: border-box;
+}
+
+page {
+    background: #eee;
+}
+
+.pageTextCon {
+    color: #666;
+    text-align: center;
+    padding-top: 20rpx;
+    font-size: 30rpx;
+}
+
+.text-ov {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    display: inline-block;
+    width: 75px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 12.5px;
+    font-weight: 500;
+    color: #333;
+    border: 1px solid #333;
+}
+
+.btn-red {
+    color: #26a0f5;
+    border-color: #26a0f5;
+}
+
+.btn-red1 {
+    color: #e3393c;
+    border-color: #e3393c;
+}
+
+.text-green {
+    color: #1bc6b4;
+}
+
+.text-red {
+    color: #e3393c;
+}
+
+.text-gray {
+    color: #999999;
+}
+
+.iconBtn {
+    display: block;
+    margin: 15px 20px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: rgb( 38, 160, 245 );
+}

@@ -1,0 +1,34 @@
+<view class="indexVolunteerManage">
+    <view wx:if="{{dataList.length==0}}" class="pageTextCon">暂无数据</view>
+    <view wx:else style="padding: 20rpx 30rpx;">
+        <view class="box">
+            <view class="title">李立新</view>
+            <view class="contern">
+                <view>
+                    <view>性别</view>
+                    <view>男</view>
+                </view>
+                <view>
+                    <view>年龄</view>
+                    <view>年龄</view>
+                </view>
+                <view>
+                    <view>参与过义务服务</view>
+                    <view>年龄</view>
+                </view>
+                <view>
+                    <view>可服务时间</view>
+                    <view>年龄</view>
+                </view>
+                <view>
+                    <view>联系电话</view>
+                    <view>年龄</view>
+                </view>
+            </view>
+            <view class="btnBox">
+                <text bindtap="refuse" class="red">拒绝</text>
+                <text bindtap="adopt" class="green">通过考核</text>
+            </view>
+        </view>
+    </view>
+</view>
