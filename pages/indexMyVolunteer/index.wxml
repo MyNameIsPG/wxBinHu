@@ -4,9 +4,14 @@
     <view wx:else style="padding: 20rpx 30rpx;">
         <view class="box" wx:for="{{dataList}}">
             <view class="box-body">
-                <text class="text-green">已加入</text>
-                <view>环境爆出</view>
-                <view>加入时间：56446</view>
+                <text class="text-green" wx:if="{{stauts == 2}}">已加入</text>
+                <text class="text-green" wx:if="{{stauts == 5}}">已退出</text>
+                <text class="text-green" wx:if="{{stauts == 1}}">待审核</text>
+                <text class="text-green" wx:if="{{stauts == 3}}">已失败</text>
+                <text class="text-green" wx:if="{{stauts == 4}}">失败待审核</text>
+                <text class="text-green" wx:if="{{stauts == 5}}">已退出</text>
+                <view>{{item.type_name}}</view>
+                <view>加入时间：{{item.create_time}}</view>
             </view>
             <view class="box-footer">
                 <text class="btn btn-red" bindtap="clickEvaluate">评价</text>

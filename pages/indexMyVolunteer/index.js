@@ -1,4 +1,6 @@
 // pages/MyVolunteer/MyVolunteer.js
+var httpRequest = require('../../utils/request.js');
+
 Page({
 
     /**
@@ -6,10 +8,7 @@ Page({
      */
     data: {
         dataList: [
-            { title: '环境保护', time: '2018-05-20 18:00', status: 1 },
-            { title: '环境保护', time: '2018-05-20 18:00', status: 1 },
-            { title: '环境保护', time: '2018-05-20 18:00', status: 2 },
-            { title: '环境保护', time: '2018-05-20 18:00', status: 2 },
+
         ]
     },
 
@@ -43,7 +42,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var that = this;
+        // httpRequest.requestHeader(
+        //     'volunteerTeam/queryVolunteerTeamListForMy.do',
+        //     {pageSize: 100, pageNum: 1},
+        //     function (data) {
+        //         that.setData({
+        //             dataList: data.data
+        //         })
+        //     }
+        // )
     },
 
     /**

@@ -1,4 +1,4 @@
-//var httpRequest = require('../../utils/request.js');
+var httpRequest = require('../../utils/request.js');
 
 Page({
 
@@ -17,11 +17,11 @@ Page({
      */
     onLoad: function (options) {
         //查询志愿者列表
-        // httpRequest.requestHeader("volunteerTeam/queryVolunteerTeamByType.do", { type: options.uuid }, function (data) {
-        //     that.setData({
-        //         dataListView: data.data
-        //     });
-        // });
+        httpRequest.requestHeader("volunteerTeam/queryVolunteerTeamByType.do", { type: options.uuid }, function (data) {
+            that.setData({
+                dataListView: data.data
+            });
+        });
     },
 
     /**

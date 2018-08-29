@@ -1,9 +1,12 @@
+var httpRequest = require('../../utils/request.js');
+
 var app = getApp();
 Page({
     data: {
         winHeight: "",//窗口高度
         currentTab: 0, //预设当前项的值
         scrollLeft: 0, //tab标题的滚动条位置
+
     },
     // 滚动切换标签样式
     switchTab: function (e) {
@@ -35,6 +38,15 @@ Page({
                     winHeight: res.windowHeight - 40,
                 });
             }
+        })
+
+        httpRequest.requestHeader('/activity/queryActivityForMyself.do', {
+            pageSize: 100,
+            pageNum: 0
+        },function (data) {
+            that.setData({
+
+            })
         })
     }
 })
