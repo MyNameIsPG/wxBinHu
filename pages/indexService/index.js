@@ -49,8 +49,7 @@ Page({
     },
     onLoad() {
         this.initValidate()
-        console.log(this.WxValidate)
-
+        
         // 获取完整的年月日 时分秒，以及默认显示的数组
         var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
         var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
@@ -102,8 +101,8 @@ Page({
         // 验证字段的提示信息，若不传则调用默认的信息
         const messages = {
             phone: {
-                required: '请输入联系方式',
-                tel: '请输入正确的联系方式'
+                required: '请输入联系电话',
+                tel: '请输入正确的联系电话'
             },
             domicile: {
                 required: '请输入居住地址',

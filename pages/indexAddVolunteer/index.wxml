@@ -62,7 +62,7 @@
                         </label>
                     </radio-group>
                 </scroll-view>
-                <swiper class="tab-content" current="{{currentTab}}" duration="" style="background: transparent; height: {{heightBox}};">
+                <view class="tab-content" current="{{currentTab}}" duration="" style="background: transparent; height: {{heightBox}};">
                     <swiper-item style="background: transparent; height: 150px;">
                         <view class="weui-cells weui-cells_after-title">
                             <view class="weui-cell weui-cell_input">
@@ -124,7 +124,7 @@
                             </view>
                         </view>
                     </swiper-item>
-                </swiper>
+                </view>
             </view>
             <view class="weui-cells weui-cells_after-title" style="margin-top: 10px;">
                 <view class="weui-cell weui-cell_select">
