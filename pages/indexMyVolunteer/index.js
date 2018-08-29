@@ -43,15 +43,15 @@ Page({
      */
     onLoad: function (options) {
         var that = this;
-        // httpRequest.requestHeader(
-        //     'volunteerTeam/queryVolunteerTeamListForMy.do',
-        //     {pageSize: 100, pageNum: 1},
-        //     function (data) {
-        //         that.setData({
-        //             dataList: data.data
-        //         })
-        //     }
-        // )
+        httpRequest.requestHeader(
+            'volunteerTeam/queryVolunteerTeamListForMy.do',
+            {pageSize: 100, pageNum: 1},
+            function (data) {
+                that.setData({
+                    dataList: data.data
+                })
+            }
+        )
     },
 
     /**

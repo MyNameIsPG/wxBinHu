@@ -1,27 +1,27 @@
 import WxValidate from '../../utils/WxValidate.js'
-
+var httpRequest = require('../../utils/request.js');
 const App = getApp()
-
 Page({
     data: {
         currentTab: 0, //预设当前项的值
-        heightBox: '88px',
+        uuid: '',
         form: {
-            name: '',
-            sex: '1',
-            date: '',
-            educational_level: '',
-            identity: '0',
-            school_name1: '',
-            major_class1: '',
-            industry1: '',
-            school_name2: '',
-            major_class2: '',
-            industry2: '',
+            name: '',//姓名
+            sex: '1',//性别
+            date: '',//出生年月
+            educational_level: '',//教育程度
+            identity: '0',//身份
+            school_name1: '',//学校名称
+            major_class1: '',//专业/班级
+            industry1: '',//所在行业
+            school_name2: '',//学校名称
+            major_class2: '',//专业/班级
+            industry2: '',//所在行业
             is_duty: '1',
             service_time: '1',
             phone: '',
-            domicile: ''
+            domicile: '',
+            checkbox: '2'
         },
         sex: [
             { name: '男', value: '1', checked: 'true' },
@@ -42,28 +42,10 @@ Page({
             { name: '周末', value: '2' },
         ],
     },
-
     // 身份切换
-    swichNav: function (e) {
+    swichNav: function(e) {
         var up = "form.identity";
         var cur = e.target.dataset.current;
-        if (cur == 0) {
-            this.setData({
-                heightBox: "88px",
-            })
-        } else if (cur == 1) {
-            this.setData({
-                heightBox: "44px",
-            })
-        } else if (cur == 2) {
-            this.setData({
-                heightBox: "0px",
-            })
-        } else if (cur == 3) {
-            this.setData({
-                heightBox: "132px",
-            })
-        }
         if (this.data.currentTaB == cur) {
             return false;
         } else {
@@ -81,35 +63,55 @@ Page({
         })
     },
     //时间控件
-    bindDateChange: function (e) {
+    bindDateChange: function(e) {
         var up = "form.date";
         this.setData({
             [up]: e.detail.value
         })
     },
     //教育程度
-    bindEducationChange: function (e) {
+    bindEducationChange: function(e) {
         var up = "form.educational_level";
         this.setData({
             [up]: e.detail.value,
         })
     },
     //是否曾参与义务服务
-    bindIsdutyChange: function (e) {
+    bindIsdutyChange: function(e) {
         var up = "form.is_duty";
         this.setData({
             [up]: e.detail.value,
         })
     },
+    //点击志愿者须知
+    checkboxChange: function(event){
+        if (this.data.form.checkbox==1){
+            var up = "form.checkbox";
+            this.setData({
+                [up]: 2
+            })
+        }else {
+            var up = "form.checkbox";
+            this.setData({
+                [up]: 1
+            })
+        }
+    },
     //志愿者须知
-    addVolunteerNotes: function () {
+    addVolunteerNotes: function() {
         wx.navigateTo({
             url: '../indexAddNotes/index'
         })
     },
-    onLoad() {
+    onLoad: function(options) {
         this.initValidate()
         console.log(this.WxValidate)
+
+        var that = this;
+        //获取高度
+        that.setData({
+            uuid: options.uuid
+        });
     },
     showModal(error) {
         wx.showModal({
@@ -119,54 +121,98 @@ Page({
     },
     submitForm(e) {
         const params = e.detail.value
-
-        console.log(params)
-
         // 传入表单数据，调用验证方法
         if (!this.WxValidate.checkForm(params)) {
             const error = this.WxValidate.errorList[0]
             this.showModal(error)
             return false
+        } else {
+            if (this.data.form.checkbox=='2'){
+                this.showModal({
+                    msg: '请先阅读并同意《志愿者须知》',
+                })
+            }else {
+                debugger
+                var school_name = '';
+                var major_class = '';
+                var industry = '';
+                if (this.data.form.identity==0){
+                    school_name = params.school_name1
+                    major_class = params.major_class1
+                } else if (this.data.form.identity == 1){
+                    industry = params.industry1
+                } else if (this.data.form.identity == 3){
+                    school_name = params.school_name2
+                    major_class = params.major_class2
+                    industry = params.industry2
+                }
+                var data = {
+                    name: params.name,
+                    sex: this.data.form.sex,
+                    birthday: params.date,
+                    educational_level: this.data.form.educational_level,
+                    identity: this.data.form.identity,
+                    school_name: school_name,
+                    major_class: major_class,
+                    industry: industry,
+                    is_duty: this.data.form.is_duty,
+                    service_time: this.data.form.service_time,
+                    phone: params.phone,
+                    domicile: params.domicile,
+                    volunteer_team_id: this.data.uuid
+                }
+                httpRequest.requestHeader("volunteer/addVolunteer.do", data, function (data) {
+                    if (data.status == 200) {
+                        wx.showToast({
+                            title: '提交成功！',
+                            icon: 'succes',
+                            duration: 1000,
+                            mask: true
+                        });
+                        setTimeout(function () {
+                            wx.navigateBack({
+                                delta: 1
+                            })
+                        }, 1000) //延迟时间 
+                    }
+                });
+            }
         }
-
-        this.showModal({
-            msg: '提交成功',
-        })
     },
     initValidate() {
         // 验证字段的规则
         const rules = {
-            name: {
-                required: true,
-            },
-            date: {
-                required: true,
-            },
-            phone: {
-                required: true,
-                tel: true
-            },
-            domicile: {
-                required: true
+                name: {
+                    required: true,
+                },
+                date: {
+                    required: true,
+                },
+                phone: {
+                    required: true,
+                    tel: true
+                },
+                domicile: {
+                    required: true
+                }
             }
-        }
-        // 验证字段的提示信息，若不传则调用默认的信息
+            // 验证字段的提示信息，若不传则调用默认的信息
         const messages = {
-            name: {
-                required: '请输入姓名',
-            },
-            date: {
-                required: '请选择时间',
-            },
-            phone: {
-                required: '请输入联系方式',
-                tel: '请输入正确的联系方式'
-            },
-            domicile: {
-                required: '请输入居住地址',
+                name: {
+                    required: '请输入姓名',
+                },
+                date: {
+                    required: '请选择时间',
+                },
+                phone: {
+                    required: '请输入联系方式',
+                    tel: '请输入正确的联系方式'
+                },
+                domicile: {
+                    required: '请输入居住地址',
+                }
             }
-        }
-        // 创建实例对象
+            // 创建实例对象
         this.WxValidate = new WxValidate(rules, messages)
     },
 })

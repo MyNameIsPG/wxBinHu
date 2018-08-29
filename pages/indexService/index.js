@@ -1,20 +1,18 @@
 import WxValidate from '../../utils/WxValidate.js'
 var dateTimePicker = require('../../utils/dateTimePicker.js');
-
+var httpRequest = require('../../utils/request.js');
 const App = getApp()
-
 Page({
     data: {
         dateTime: '',
-        currentTab: 0, //预设当前项的值
-        heightBox: '88px',
         form: {
             type: '0',
             educational_level: '0',
             identity: '0',
             school_name1: '',
             book_type: '0',
-            phone: ''
+            phone: '',
+            remark: ''
         },
         type: [
             '环境保护',
@@ -56,6 +54,7 @@ Page({
         // 精确到分的处理，将数组的秒去掉
         var lastArray = obj1.dateTimeArray.pop();
         var lastTime = obj1.dateTime.pop();
+        
         this.setData({
             dateTime: obj.dateTime,
             dateTimeArray: obj.dateTimeArray,
@@ -73,19 +72,47 @@ Page({
     },
     submitForm(e) {
         const params = e.detail.value
-
         console.log(params)
-
         // 传入表单数据，调用验证方法
         if (!this.WxValidate.checkForm(params)) {
             const error = this.WxValidate.errorList[0]
             this.showModal(error)
             return false
+        } else {
+            var arr = [
+                "153049720572388",
+                "153049724075277",
+                "153049725197393",
+                "153049726659970",
+                "153049728164352",
+                "153049730503275"
+            ]
+            var dateTimeArray = this.data.dateTimeArray;
+            var dateTime = this.data.dateTime;
+            var booking_time = dateTimeArray[0][dateTime[0]] + '-' + dateTimeArray[1][dateTime[1]] + '-' + dateTimeArray[2][dateTime[2]] + ' ' + dateTimeArray[3][dateTime[3]] + ':' + dateTimeArray[4][dateTime[4]] + ':' + dateTimeArray[5][dateTime[5]]
+            var data = {
+                type: arr[params.type],
+                address: params.domicile,
+                booking_time: booking_time,
+                phone: params.phone,
+                remark: params.remark,
+            }
+            httpRequest.requestHeader("bookService/addBookingService.do", data, function (data) {
+                if (data.status == 200) {
+                    wx.showToast({
+                        title: '提交成功！',
+                        icon: 'succes',
+                        duration: 1000,
+                        mask: true
+                    });
+                    setTimeout(function () {
+                        wx.navigateBack({
+                            delta: 1
+                        })
+                    }, 1000) //延迟时间 
+                }
+            });
         }
-
-        this.showModal({
-            msg: '提交成功',
-        })
     },
     initValidate() {
         // 验证字段的规则

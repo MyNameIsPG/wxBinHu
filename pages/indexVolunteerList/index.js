@@ -17,6 +17,7 @@ Page({
      */
     onLoad: function (options) {
         //查询志愿者列表
+        var that = this;
         httpRequest.requestHeader("volunteerTeam/queryVolunteerTeamByType.do", { type: options.uuid }, function (data) {
             that.setData({
                 dataListView: data.data

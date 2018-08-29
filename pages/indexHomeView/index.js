@@ -8,6 +8,7 @@ Page({
         scrollLeft: 0, //tab标题的滚动条位置
         uuid: '',
         dataListView: [],//查询详情
+        dataListActive: [],//查询活动列表
     },
     // 滚动切换标签样式
     switchTab: function (e) {
@@ -29,7 +30,7 @@ Page({
     //申请志愿者
     addVolunteer() {
         wx.navigateTo({
-            url: '../indexAddVolunteer/index'
+            url: '../indexAddVolunteer/index?uuid='+this.data.uuid+''
         })
     },
     //预约服务
@@ -59,6 +60,13 @@ Page({
         httpRequest.requestHeader("volunteerTeam/queryVolunteerTeamByType.do", { type: options.uuid }, function (data) {
             that.setData({
                 dataListView: data.data
+            });
+        });
+
+        //根据志愿者团队查询活动列表
+        httpRequest.requestHeader("activity/queryActivityListByVolunteerTeam.do", { volunteer_team_id: options.uuid, pageSize: 10, pageNum: 1 }, function (data) {
+            that.setData({
+                dataListActive: data.data
             });
         });
     }
