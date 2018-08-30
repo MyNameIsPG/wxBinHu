@@ -39,6 +39,12 @@ Page({
             url: '../indexService/index'
         })
     },
+    //跳转活动
+    clickActiveView(event){
+        wx.navigateTo({
+            url: '../indexActiveView/index?uuid='+event.currentTarget.dataset.itemUuid+''
+        })
+    },
     onLoad: function (options) {
         var that = this;
         //设置标题

@@ -43,7 +43,7 @@ Page({
         ],
     },
     // 身份切换
-    swichNav: function(e) {
+    swichNav: function (e) {
         var up = "form.identity";
         var cur = e.target.dataset.current;
         if (this.data.currentTaB == cur) {
@@ -63,34 +63,34 @@ Page({
         })
     },
     //时间控件
-    bindDateChange: function(e) {
+    bindDateChange: function (e) {
         var up = "form.date";
         this.setData({
             [up]: e.detail.value
         })
     },
     //教育程度
-    bindEducationChange: function(e) {
+    bindEducationChange: function (e) {
         var up = "form.educational_level";
         this.setData({
             [up]: e.detail.value,
         })
     },
     //是否曾参与义务服务
-    bindIsdutyChange: function(e) {
+    bindIsdutyChange: function (e) {
         var up = "form.is_duty";
         this.setData({
             [up]: e.detail.value,
         })
     },
     //点击志愿者须知
-    checkboxChange: function(event){
-        if (this.data.form.checkbox==1){
+    checkboxChange: function (event) {
+        if (this.data.form.checkbox == 1) {
             var up = "form.checkbox";
             this.setData({
                 [up]: 2
             })
-        }else {
+        } else {
             var up = "form.checkbox";
             this.setData({
                 [up]: 1
@@ -98,12 +98,12 @@ Page({
         }
     },
     //志愿者须知
-    addVolunteerNotes: function() {
+    addVolunteerNotes: function () {
         wx.navigateTo({
             url: '../indexAddNotes/index'
         })
     },
-    onLoad: function(options) {
+    onLoad: function (options) {
         this.initValidate()
         console.log(this.WxValidate)
 
@@ -127,21 +127,20 @@ Page({
             this.showModal(error)
             return false
         } else {
-            if (this.data.form.checkbox=='2'){
+            if (this.data.form.checkbox == '2') {
                 this.showModal({
                     msg: '请先阅读并同意《志愿者须知》',
                 })
-            }else {
-                debugger
+            } else {
                 var school_name = '';
                 var major_class = '';
                 var industry = '';
-                if (this.data.form.identity==0){
+                if (this.data.form.identity == 0) {
                     school_name = params.school_name1
                     major_class = params.major_class1
-                } else if (this.data.form.identity == 1){
+                } else if (this.data.form.identity == 1) {
                     industry = params.industry1
-                } else if (this.data.form.identity == 3){
+                } else if (this.data.form.identity == 3) {
                     school_name = params.school_name2
                     major_class = params.major_class2
                     industry = params.industry2
@@ -170,8 +169,8 @@ Page({
                             mask: true
                         });
                         setTimeout(function () {
-                            wx.navigateBack({
-                                delta: 1
+                            wx.navigateTo({
+                                url: '../indexAddTip/index'
                             })
                         }, 1000) //延迟时间 
                     }
@@ -182,37 +181,37 @@ Page({
     initValidate() {
         // 验证字段的规则
         const rules = {
-                name: {
-                    required: true,
-                },
-                date: {
-                    required: true,
-                },
-                phone: {
-                    required: true,
-                    tel: true
-                },
-                domicile: {
-                    required: true
-                }
+            name: {
+                required: true,
+            },
+            date: {
+                required: true,
+            },
+            phone: {
+                required: true,
+                tel: true
+            },
+            domicile: {
+                required: true
             }
-            // 验证字段的提示信息，若不传则调用默认的信息
+        }
+        // 验证字段的提示信息，若不传则调用默认的信息
         const messages = {
-                name: {
-                    required: '请输入姓名',
-                },
-                date: {
-                    required: '请选择时间',
-                },
-                phone: {
-                    required: '请输入联系方式',
-                    tel: '请输入正确的联系方式'
-                },
-                domicile: {
-                    required: '请输入居住地址',
-                }
+            name: {
+                required: '请输入姓名',
+            },
+            date: {
+                required: '请选择时间',
+            },
+            phone: {
+                required: '请输入联系方式',
+                tel: '请输入正确的联系方式'
+            },
+            domicile: {
+                required: '请输入居住地址',
             }
-            // 创建实例对象
+        }
+        // 创建实例对象
         this.WxValidate = new WxValidate(rules, messages)
     },
 })

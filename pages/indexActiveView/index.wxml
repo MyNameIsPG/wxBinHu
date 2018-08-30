@@ -1,0 +1,54 @@
+<view class="listContainer">
+    <view class="bannerContainer">
+        <image wx:if="{{dataListView.cover==''}}" src="../image/banner1.png"></image>
+        <image wx:else src="{{dataListView.cover}}"></image>
+    </view>
+    <view style="padding: 20rpx 30rpx;">
+        <view class="tabBox1">
+            <p style="color: #333333; font-size: 30rpx; font-weight: 600;">{{dataListView.name}}</p>
+            <p>报名时间：
+                <span>{{dataListView.sign_starttime+' 至 '+ dataListView.sign_endtime}}</span>
+            </p>
+            <p>服务时间：
+                <span>{{dataListView.activity_starttime+' 至 '+dataListView.activity_endtime}}</span>
+            </p>
+            <p>地址：
+                <span>{{dataListView.activity_place}}</span>
+            </p>
+            <p>报名人数：
+                <span>{{dataListView.total}}</span>
+            </p>
+        </view>
+        <view class="listBox">
+            <view class="listBox-hade">
+                <text>活动详情</text>
+            </view>
+            <view class="listBox-body">
+                <view style="font-size: 24rpx;" wx:if="{{dataListView.activity_detail==''}}">暂无</view>
+                <view wx:else>
+                    <view class="text">
+                        {{dataListView.activity_detail}}
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="listBox" style="margin-top: 7px;">
+            <view class="listBox-hade">
+                <text>报名居民</text>
+            </view>
+            <view class="listBox-body">
+                <view style="font-size: 24rpx;" wx:if="{{dataListView.nameList.length==0}}">暂无</view>
+                <view wx:else>
+                    <view class="userInfo" wx:for="{{dataListView.nameList}}">
+                        <image src="../image/user.jpg"></image>
+                        <text>{{item.name}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="btnBox">
+        <view bindtap="addService">立即报名</view>
+    </view>
+</view>

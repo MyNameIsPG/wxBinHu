@@ -96,6 +96,7 @@ Page({
                 booking_time: booking_time,
                 phone: params.phone,
                 remark: params.remark,
+                book_type: this.data.form.book_type
             }
             httpRequest.requestHeader("bookService/addBookingService.do", data, function (data) {
                 if (data.status == 200) {

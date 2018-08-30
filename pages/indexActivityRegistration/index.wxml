@@ -1,0 +1,43 @@
+<view class="page">
+    <view class="page__bd">
+        <form bindsubmit="submitForm">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">姓名</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="name" value="{{ form.name }}" class="weui-input" type="text" placeholder="请输入姓名" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">年龄</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="age" value="{{ form.age }}" class="weui-input" type="text" placeholder="请输入年龄" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">地址</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="address" value="{{ form.address }}" class="weui-input" type="text" placeholder="请输入地址" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">报名人数</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="people_number" value="{{ form.people_number }}" class="weui-input" type="text" placeholder="请输入报名人数" />
+                    </view>
+                </view>
+            </view>
+            <view class="button-sp-area" style="margin-top: 15px; width: 90%;">
+                <button class="weui-btn" style=" background: #43aaff; color: #fff; " formType="submit">提交</button>
+            </view>
+        </form>
+    </view>
+</view>

@@ -51,7 +51,7 @@
                     <view class="item-ans">
                         <view wx:if="{{dataListActive.length==0}}" class="pageTextCon">暂无数据</view>
                         <view wx:else>
-                            <view class="item-ans-contern" wx:for="{{dataListActive}}">
+                            <view class="item-ans-contern" bindtap="clickActiveView" wx:for="{{dataListActive}}" data-item-uuid="{{item.uuid}}">
                                 <view class="avatar">
                                     <image class="img" src="../image/bg1.png"></image>
                                 </view>

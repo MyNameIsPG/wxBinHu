@@ -1,0 +1,24 @@
+page {
+    background: #fff;
+}
+
+.indexAddTip {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.indexAddTip image {
+    width: 200rpx;
+    height: 200rpx;
+    margin: 100rpx auto 50rpx;
+}
+
+.btns {
+    border-radius: 15rpx;
+    background-color: rgb(38, 160, 245);
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 36rpx;
+}

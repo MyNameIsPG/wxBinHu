@@ -1,0 +1,6 @@
+<view class="indexAddTip">
+    <image src="../image/success.png"></image>
+    <view style=" color: #333333; font-size: 40rpx;">申请成功，等待审核</view>
+    <view style=" color: #666666; font-size: 28rpx; margin: 15px 0 20px;">审核结果将在2个工作日内处理，请耐心等待</view>
+    <view bindtap="btnCLick" class="btns">确认</view>
+</view>

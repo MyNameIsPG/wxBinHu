@@ -1,9 +1,14 @@
 {
     "pages": [
+        
         "pages/index/index",
         "pages/indexHome/index",
         "pages/indexHomeView/index",
+        "pages/indexActiveView/index",
+        "pages/indexActivityRegistration/index",
+
         "pages/indexAddVolunteer/index",
+        "pages/indexAddTip/index",
         "pages/indexAddNotes/index",
         "pages/indexVolunteerList/index",
         "pages/indexService/index",
