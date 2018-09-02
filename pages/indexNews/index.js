@@ -1,4 +1,4 @@
-//var httpRequest = require('../../utils/request.js');
+var httpRequest = require('../../utils/request.js');
 
 Page({
 
@@ -6,22 +6,23 @@ Page({
      * 页面的初始数据
      */
     data: {
-        dataList: [
-            {"name": '123'}
-        ]
+        dataList: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        // var data = {
-        //     pageSize: 100,
-        //     pageNum: 1
-        // }
-        // httpRequest.requestHeader("message/queryMessageList.do", data, function (data) {
-        //     _this.data.dataList = data.data
-        // });
+        var data = {
+            pageSize: 100,
+            pageNum: 1
+        }
+        var that = this;
+        httpRequest.requestHeader("message/queryMessageList.do", data, function (data) {
+            that.setData({
+                dataList: data.data
+            })
+        });
     },
 
     /**

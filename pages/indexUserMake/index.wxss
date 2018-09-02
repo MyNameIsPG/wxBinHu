@@ -30,7 +30,7 @@
 .list > view > view:nth-child(2) {
     color: #333333;
     font-size: 24rpx;
-    float: left;
+    float: right;
     width: 50%;
 }
 

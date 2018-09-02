@@ -6,10 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        dataListView: [
-            { "title": '1' },
-            { "title": '1' },
-        ],
+        dataListView: [],
     },
 
     /**
@@ -18,7 +15,12 @@ Page({
     onLoad: function (options) {
         //查询志愿者列表
         var that = this;
-        httpRequest.requestHeader("volunteerTeam/queryVolunteerTeamByType.do", { type: options.uuid }, function (data) {
+        var data = {
+            pageSize: 10,
+            pageNum: 1,
+            stautss: 2
+        }
+        httpRequest.requestHeader("volunteer/queryVolunteerList.do", data, function (data) {
             that.setData({
                 dataListView: data.data
             });

@@ -6,7 +6,7 @@ Page({
         winHeight: "",//窗口高度
         currentTab: 0, //预设当前项的值
         scrollLeft: 0, //tab标题的滚动条位置
-
+        dataList: []
     },
     // 滚动切换标签样式
     switchTab: function (e) {
@@ -40,12 +40,12 @@ Page({
             }
         })
 
-        httpRequest.requestHeader('/activity/queryActivityForMyself.do', {
+        httpRequest.requestHeader('activity/queryActivityForMyself.do', {
             pageSize: 100,
-            pageNum: 0
+            pageNum: 1
         },function (data) {
             that.setData({
-
+                dataList: data.data
             })
         })
     }

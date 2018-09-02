@@ -1,16 +1,10 @@
 <!--pages/MyNews/MyNews.wxml-->
 <view>
     <view class="MyNewsContainer" wx:if="{{dataList.length>0}}">
-        <view class="box">
-            <text class="text-green">2018-06-20 18:00</text>
-            <view class="text-ov">环境爆出环境爆出环境爆出环境爆出</view>
-            <view>恭喜您，申请【环境保护】志愿队审核成功恭喜您，申请【环境保
-    护】志愿队审核成功恭喜您，申请【环境保护】志愿队审核成功。</view>
-        </view>
-        <view class="box">
-            <text class="text-green">2018-06-20 18:00</text>
-            <view class="text-ov">环境爆出环境爆出</view>
-            <view>恭喜您，申请【环境保护】志愿队审核成功恭喜您</view>
+        <view class="box" wx:for="{{dataList}}">
+            <text class="text-green">{{item.create_time}}</text>
+            <view class="text-ov">{{item.title}}</view>
+            <view>{{item.content}}</view>
         </view>
     </view>
     <view class="pageTextCon" wx:else>

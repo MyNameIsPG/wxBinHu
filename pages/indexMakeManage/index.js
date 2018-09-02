@@ -1,21 +1,27 @@
-// pages/userMake/index.js
+var httpRequest = require('../../utils/request.js');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        dataList: [
-            { "t": "123" },
-            { "t": "123" }
-        ]
+        dataList: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var that = this;
+        httpRequest.requestHeader(
+            'bookService/queryBookingServiceForTeam.do',
+            { pageSize: 100, pageNum: 1 },
+            function (data) {
+                that.setData({
+                    dataList: data.data
+                })
+            }
+        )
     },
 
     /**

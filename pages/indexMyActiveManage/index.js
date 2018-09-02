@@ -1,22 +1,28 @@
-// pages/indexMyActiveManage/index.js
+var httpRequest = require('../../utils/request.js');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        dataList: [
-            { "title": "" },
-            { "title": "" },
-            { "title": "" },
-        ]
+        dataList: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var that = this;
+        httpRequest.requestHeader(
+            'activity/queryActivityForManager.do',
+            { pageSize: 100, pageNum: 1 },
+            function (data) {
+                debugger
+                that.setData({
+                    dataList: data.data
+                })
+            }
+        )
     },
 
     /**
