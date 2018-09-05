@@ -4,27 +4,27 @@
         <view class="item-ans" wx:for="{{dataList}}">
             <view class="item-ans-contern">
                 <view class="avatar">
-                    <image class="img" src="../image/bg1.png"></image>
+                    <image wx:if="{{item.cover==''}}" class="img" src="../image/bg1.png"></image>
+                    <image wx:else class="img" src="{{item.cover}}"></image>
                 </view>
                 <view class="expertInfo">
-                    <view class="name">滨湖湘江之水保护公益活动,滨湖湘 江之水保护公益活动
-                    </view>
+                    <view class="name">{{item.name}}</view>
                     <view class="tag">
                         <image class="img" src="../image/times.png"></image>
-                        知名情感博主
+                        {{item.create_time}}
                     </view>
                     <view class="answerHistory">
                         <image class="img" src="../image/place.png"></image>
-                        河西商业广场河西商业广场河西商业广场河西商业广场
+                        {{item.activity_place}}
                     </view>
                 </view>
             </view>
             <view class="tabbar2">
-                <text class="btnUser" style="float: right;">查看报名人数</text>
-                <text class="btn btn-red" bindtap="clickEvaluate" style="margin-right: 10px;">修改</text>
-                <text class="btn btn-red1" bindtap="clickEvaluate">删除</text>
+                <text class="btnUser" style="float: right;" data-item-uuid="{{item.uuuid}}">查看报名人数</text>
+                <!-- <text class="btn btn-red" bindtap="clickEvaluate" data-item-uuid="{{item.uuuid}}" style="margin-right: 10px;">修改</text>
+                <text class="btn btn-red1" bindtap="clickEvaluate" data-item-uuid="{{item.uuuid}}">删除</text>
                 <text class="text-green" style="font-size: 26rpx;">预约成功</text>
-                <text class="text-gray" style="font-size: 26rpx;">已结束</text>
+                <text class="text-gray" style="font-size: 26rpx;">已结束</text> -->
             </view>
         </view>
     </view>

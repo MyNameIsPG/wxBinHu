@@ -17,7 +17,6 @@ Page({
             'activity/queryActivityForManager.do',
             { pageSize: 100, pageNum: 1 },
             function (data) {
-                debugger
                 that.setData({
                     dataList: data.data
                 })

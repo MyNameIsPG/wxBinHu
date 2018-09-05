@@ -1,8 +1,8 @@
 <view class="indexVolunteerManage">
     <view wx:if="{{dataList.length==0}}" class="pageTextCon">暂无数据</view>
     <view wx:else style="padding: 20rpx 30rpx;">
-        <view class="box">
-            <view class="title">李立新</view>
+        <view class="box" wx:for="{{dataList}}">
+            <view class="title">{{item.name}}</view>
             <view class="contern">
                 <view>
                     <view>性别</view>
@@ -26,8 +26,8 @@
                 </view>
             </view>
             <view class="btnBox">
-                <text bindtap="refuse" class="red">拒绝</text>
-                <text bindtap="adopt" class="green">通过考核</text>
+                <text bindtap="refuse" class="red" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}">拒绝</text>
+                <text bindtap="adopt" class="green" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}">通过考核</text>
             </view>
         </view>
     </view>

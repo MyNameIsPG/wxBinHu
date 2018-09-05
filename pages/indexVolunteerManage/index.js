@@ -1,23 +1,41 @@
-// pages/indexVolunteerManage/index.js
+var httpRequest = require('../../utils/request.js');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        dataList: [
-            {"ttile":""}
-        ]
+        dataList: []
     },
 
     //拒绝
     refuse(){
+        var data = {
+            uuid: event.currentTarget.dataset.itemUuid,
+            old_stauts: event.currentTarget.dataset.itemStauts
+        }
         wx.showModal({
             title: '温馨提示',
             content: '是否拒绝该成员？',
             success: function (res) {
                 if (res.confirm) {
-                    console.log('用户点击确定')
+                    httpRequest.requestHeader("volunteer/updateVolunteerStatusForRefuse.do", data, function (data) {
+                        if (data.status == 200) {
+                            debugger
+                            wx.showToast({
+                                title: '操作成功！',
+                                icon: 'succes',
+                                duration: 1000,
+                                mask: true
+                            });
+                            // setTimeout(function () {
+                            //     //要延时执行的代码
+                            //     wx.navigateTo({
+                            //         url: '../index/index'
+                            //     })
+                            // }, 1000) //延迟时间 
+                        }
+                    });
                 } else {
                     console.log('用户点击取消')
                 }
@@ -25,13 +43,33 @@ Page({
         })
     },
     //通过
-    adopt() {
+    adopt(event) {
+        var data = {
+            uuid: event.currentTarget.dataset.itemUuid,
+            old_stauts: event.currentTarget.dataset.itemStauts
+        }
         wx.showModal({
             title: '温馨提示',
             content: '是否通过该成员？',
             success: function (res) {
                 if (res.confirm) {
-                    console.log('用户点击确定')
+                    httpRequest.requestHeader("volunteer/updateVolunteerStatusForPass.do", data, function (data) {
+                        if (data.status == 200) {
+                            debugger
+                            wx.showToast({
+                                title: '操作成功！',
+                                icon: 'succes',
+                                duration: 1000,
+                                mask: true
+                            });
+                            // setTimeout(function () {
+                            //     //要延时执行的代码
+                            //     wx.navigateTo({
+                            //         url: '../index/index'
+                            //     })
+                            // }, 1000) //延迟时间 
+                        }
+                    });
                 } else {
                     console.log('用户点击取消')
                 }
@@ -51,7 +89,18 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        var that = this;
+        var data = {
+            pageSize: 10,
+            pageNum: 1,
+        }
+        httpRequest.requestHeader("volunteer/queryVolunteerList.do", data, function (data) {
+            if (data.status == 200) {
+                that.setData({
+                    dataList: data.data
+                })
+            }
+        });
     },
 
     /**
