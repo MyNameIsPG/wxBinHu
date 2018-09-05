@@ -1,0 +1,48 @@
+<view class="page">
+    <view class="page__bd">
+        <form bindsubmit="submitForm">
+            <view class="weui-cells weui-cells_after-title" style="margin-top: 10px;">
+                <view class="weui-cell weui-cell_select">
+                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                        <view class="weui-label">出生年月</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker name="date" mode="date" bindchange="bindDateChange" start="2015-09-01" end="2017-09-01" value="{{ form.date }}">
+                            <view class="weui-select weui-select_in-select-after">{{ form.date }}</view>
+                        </picker>
+                    </view>
+                </view>
+
+                
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">联系电话</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="phone" value="{{ form.phone }}" class="weui-input" type="text" placeholder="请输入联系电话" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">预约地点</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="domicile" value="{{ form.domicile }}" class="weui-input" type="text" placeholder="请输入预约地点" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="padding-top: 10px;">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">备注</view>
+                    </view>
+                </view>
+                <view class="" style="padding: 10px 15px;">
+                    <textarea style="border: 1px solid #26a0f5; border-radius: 5px; padding: 10rpx; margin-left: -10rpx; font-size: 30rpx;" class="weui-textarea" name="remark" value="{{ form.remark }}" placeholder="请描述活动内容"></textarea>        
+                </view>
+            </view>
+            <view style="color: #999999; font-size: 20rpx; text-align: center; padding-top: 10px;">志愿队服务时间：09:00-12:00 14:00-19:00</view>
+            <view class="button-sp-area">
+                <button class="weui-btn" style="background-color: #26a0f5; color: #fff;" type="" formType="submit">提交</button>
+            </view>
+        </form>
+    </view>
+</view>

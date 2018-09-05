@@ -13,6 +13,18 @@ Page({
             url: event.currentTarget.dataset.itemPath + '?title=' + event.currentTarget.dataset.itemTitle
         })
     },
+    //个人设置
+    clickIndexView1(){
+        wx.navigateTo({
+            url: '../indexUserSetting/index'
+        })
+    },
+    //发布活动
+    clickIndexView2() {
+        wx.navigateTo({
+            url: '../indexMyActiveAdd/index'
+        })
+    },
     onLoad: function (options) {
         var app = getApp();
         this.setData({

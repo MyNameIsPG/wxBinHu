@@ -6,7 +6,6 @@
         "pages/indexHomeView/index",
         "pages/indexActiveView/index",
         "pages/indexActivityRegistration/index",
-
         "pages/indexAddVolunteer/index",
         "pages/indexAddTip/index",
         "pages/indexAddNotes/index",
@@ -16,12 +15,14 @@
         "pages/indexMyVolunteer/index",
         "pages/indexMyEvaluate/index",
         "pages/indexMyActiveList/index",
+        "pages/indexMyActiveAdd/index",
         "pages/indexUserMake/index",
         "pages/indexNews/index",
         "pages/indexVolunteerManage/index",
         "pages/indexMyActiveManage/index",
         "pages/indexMakeManage/index",
         "pages/indexUserName/index",
+        "pages/indexUserSetting/index",
         "pages/logs/logs"
     ],
     "window": {

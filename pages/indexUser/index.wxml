@@ -2,8 +2,8 @@
     <view class="bannerContainer">
         <image src="../image/user/userBg.jpg"></image>
         <view class="settingBtn">
-            <image src="../image/user/settingAddIcon.png"></image>
-            <image src="../image/user/settingIcon.png"></image>
+            <image bindtap="clickIndexView2" src="../image/user/settingAddIcon.png"></image>
+            <image bindtap="clickIndexView1" src="../image/user/settingIcon.png"></image>
         </view>
         <view class="userPhotoBox">
             <view>
