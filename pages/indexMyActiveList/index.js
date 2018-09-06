@@ -18,18 +18,32 @@ Page({
     // 点击标题切换当前页时改变样式
     swichNav: function (e) {
         var cur = e.target.dataset.current;
-        if (this.data.currentTaB == cur) { return false; }
-        else {
+        if(cur==0){
+            this.dataShow(1);
+        } else {
+            this.dataShow(2);
+        }
+        if (this.data.currentTaB == cur) {
+            return false;
+        }else {
             this.setData({
                 currentTab: cur
             })
         }
     },
+    dataShow(obj){
+        var that = this;
+        httpRequest.requestHeader('activity/queryActivityForMyself.do', {
+            pageSize: 100,
+            pageNum: 1,
+            status: obj
+        }, function (data) {
+            that.setData({
+                dataList: data.data
+            })
+        })
+    },
     onLoad: function (options) {
-        //设置标题
-        // wx.setNavigationBarTitle({
-        //     title: options.title + '详情'
-        // })
         //获取高度
         var that = this;
         wx.getSystemInfo({
@@ -39,14 +53,6 @@ Page({
                 });
             }
         })
-
-        httpRequest.requestHeader('activity/queryActivityForMyself.do', {
-            pageSize: 100,
-            pageNum: 1
-        },function (data) {
-            that.setData({
-                dataList: data.data
-            })
-        })
+        that.dataShow(1);
     }
 })

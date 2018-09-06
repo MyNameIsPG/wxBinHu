@@ -6,23 +6,27 @@
             <view class="contern">
                 <view>
                     <view>性别</view>
-                    <view>男</view>
+                    <view wx:if="{{item.sex==1}}">男</view>
+                    <view wx:elif="{{item.sex==2}}">女</view>
+                    <view wx:else></view>
                 </view>
                 <view>
-                    <view>年龄</view>
-                    <view>年龄</view>
+                    <view>出生年月</view>
+                    <view>{{item.birthday}}</view>
                 </view>
                 <view>
                     <view>参与过义务服务</view>
-                    <view>年龄</view>
+                    <view wx:if="{{item.is_duty==1}}">是</view>
+                    <view wx:elif="{{item.is_duty==2}}">否</view>
                 </view>
                 <view>
                     <view>可服务时间</view>
-                    <view>年龄</view>
+                    <view wx:if="{{item.service_time==1}}">工作日</view>
+                    <view wx:elif="{{item.service_time==2}}">周末</view>
                 </view>
                 <view>
                     <view>联系电话</view>
-                    <view>年龄</view>
+                    <view>{{item.phone}}</view>
                 </view>
             </view>
             <view class="btnBox">

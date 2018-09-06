@@ -1,3 +1,46 @@
+.tab-h {
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    line-height: 40px;
+    background: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    border-bottom: 1px solid #cccccc;
+}
+
+.tab-item {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    color: #333333;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.tab-item.active {
+    color: #26a0f5;
+    position: relative;
+}
+
+.tab-item.active:after {
+    content: "";
+    display: block;
+    height: 8rpx;
+    width: 52px;
+    background: #26a0f5;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    border-radius: 16rpx;
+    margin-left: -26px;
+}
+
 .item-ans {
     width: 100%;
     padding: 0rpx 30rpx;
@@ -78,11 +121,18 @@
     height: 100%;
 }
 
+.tabbar4 {
+    padding-left: 130px;
+    color: #e3393c;
+    font-size: 12px;
+    margin: 5px 0;
+}
+
 .tabbar2 {
+    text-align: right;
     padding: 10px 0;
     padding-right: 15px;
     margin: 5px 0;
-    overflow: hidden;
 }
 
 .btnUser {
@@ -96,8 +146,4 @@
     font-weight: 500;
     color: #333;
     border: 1px solid #333;
-}
-
-.btnUpdata {
-    
 }

@@ -16,7 +16,7 @@
 
 .tab-item {
     display: inline-block;
-    width: 25%;
+    width: 50%;
     text-align: center;
     color: #333333;
     font-size: 15px;

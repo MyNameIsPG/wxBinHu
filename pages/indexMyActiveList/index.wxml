@@ -1,38 +1,38 @@
 <!--pages/MyActivity/MyActivity.wxml-->
 <view class="MyActivityContainer">
     <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-        <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">已报名</view>
+        <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">未开始</view>
         <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">已结束</view>
-        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">审核中</view>
-        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">审核失败</view>
+        <!-- <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">审核中</view>
+        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">审核失败</view> -->
     </scroll-view>
     <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}px; padding: 10rpx 30rpx;">
-        <swiper-item wx:for="{{[0,1,2,3,4,5,6,7]}}">
+        <swiper-item>
             <scroll-view scroll-y="true" class="scoll-h">
-                <block wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="*this">
+                <block wx:for="{{dataList}}" wx:key="*this">
                     <view class="item-ans">
                         <view class="item-ans-contern">
                             <view class="avatar">
-                                <image class="img" src="../image/bg1.png"></image>
+                                <image wx:if="{{item.cover==''}}" class="img" src="../image/bg1.png"></image>
+                                <image wx:else class="img" src="{{item.cover}}"></image>
                             </view>
                             <view class="expertInfo">
-                                <view class="name">滨湖湘江之水保护公益活动,滨湖湘
-    江之水保护公益活动</view>
+                                <view class="name">{{item.name}}</view>
                                 <view class="tag">
                                     <image class="img" src="../image/times.png"></image>
-                                    知名情感博主
+                                    {{item.activity_starttime}}
                                 </view>
                                 <view class="answerHistory">
                                     <image class="img" src="../image/place.png"></image>
-                                    河西商业广场河西商业广场河西商业广场河西商业广场
+                                    {{item.activity_place}}
                                 </view>
                             </view>
                         </view>
-                        <view class="tabbar2">
+                        <!-- <view class="tabbar2">
                             <text class="btn btn-red" bindtap="clickEvaluate">评价</text>
-                        </view>
+                        </view> -->
                         <!-- 审核失败 -->
-                        <view class="tabbar4">您的身份不符合要求</view>
+                        <!-- <view class="tabbar4">您的身份不符合要求</view> -->
                     </view>
                 </block>
             </scroll-view>

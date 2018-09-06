@@ -53,7 +53,8 @@
                         <view wx:else>
                             <view class="item-ans-contern" bindtap="clickActiveView" wx:for="{{dataListActive}}" data-item-uuid="{{item.uuid}}">
                                 <view class="avatar">
-                                    <image class="img" src="../image/bg1.png"></image>
+                                    <image wx:if="{{item.cover==''}}" class="img" src="../image/bg1.png"></image>
+                                    <image wx:else class="img" src="{{item.cover}}"></image>
                                 </view>
                                 <view class="expertInfo">
                                     <view class="name">{{item.name}}</view>

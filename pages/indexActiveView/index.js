@@ -5,6 +5,7 @@ Page({
     data: {
         uuid: '',
         dataListView: [],//查询详情
+        dataListView1: []
     },
     //立即报名
     addService() {
@@ -24,6 +25,11 @@ Page({
                 dataListView: data.data
             });
         });
-
+        //查询活动是否已报名
+        httpRequest.requestHeader("/activityregistration/queryActivityRegistrationForUser", { activity_id: options.uuid }, function (data) {
+            that.setData({
+                dataListView1: data.data
+            });
+        });
     }
 })

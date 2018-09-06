@@ -23,8 +23,9 @@
                 <view>{{item.remark}}</view>
             </view>
             <view>
-                <view class="text-green"> </view>
-                <view class="btns"><text>评价</text></view>
+                <view wx:if="{{item.status==1}}" class="text-red">未完成</view>
+                <view wx:else class="text-green">已完成</view>
+                <!-- <view class="btns"><text>评价</text></view> -->
             </view>
         </view>
         <!-- <view class="list">

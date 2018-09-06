@@ -1,31 +1,41 @@
-<view>
-    <view wx:if="{{dataList.length==0}}" class="pageTextCon">暂无数据</view>
-    <view wx:else style="padding: 20rpx 30rpx;">
-        <view class="item-ans" wx:for="{{dataList}}">
-            <view class="item-ans-contern">
-                <view class="avatar">
-                    <image wx:if="{{item.cover==''}}" class="img" src="../image/bg1.png"></image>
-                    <image wx:else class="img" src="{{item.cover}}"></image>
-                </view>
-                <view class="expertInfo">
-                    <view class="name">{{item.name}}</view>
-                    <view class="tag">
-                        <image class="img" src="../image/times.png"></image>
-                        {{item.create_time}}
+<!--pages/MyActivity/MyActivity.wxml-->
+<view class="MyActivityContainer">
+    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">未开始</view>
+        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">已结束</view>
+        <!-- <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">审核中</view>
+        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">审核失败</view> -->
+    </scroll-view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}px; padding: 10rpx 30rpx;">
+        <swiper-item>
+            <scroll-view scroll-y="true" class="scoll-h">
+                <block wx:for="{{dataList}}" wx:key="*this">
+                    <view class="item-ans">
+                        <view class="item-ans-contern">
+                            <view class="avatar">
+                                <image wx:if="{{item.cover==''}}" class="img" src="../image/bg1.png"></image>
+                                <image wx:else class="img" src="{{item.cover}}"></image>
+                            </view>
+                            <view class="expertInfo">
+                                <view class="name">{{item.name}}</view>
+                                <view class="tag">
+                                    <image class="img" src="../image/times.png"></image>
+                                    {{item.activity_starttime}}
+                                </view>
+                                <view class="answerHistory">
+                                    <image class="img" src="../image/place.png"></image>
+                                    {{item.activity_place}}
+                                </view>
+                            </view>
+                        </view>
+                        <view class="tabbar2">
+                            <text class="btn btnUser" bindtap="clickEvaluate">查看报名人数</text>
+                        </view>
+                        <!-- 审核失败 -->
+                        <!-- <view class="tabbar4">您的身份不符合要求</view> -->
                     </view>
-                    <view class="answerHistory">
-                        <image class="img" src="../image/place.png"></image>
-                        {{item.activity_place}}
-                    </view>
-                </view>
-            </view>
-            <view class="tabbar2">
-                <text class="btnUser" style="float: right;" data-item-uuid="{{item.uuuid}}">查看报名人数</text>
-                <!-- <text class="btn btn-red" bindtap="clickEvaluate" data-item-uuid="{{item.uuuid}}" style="margin-right: 10px;">修改</text>
-                <text class="btn btn-red1" bindtap="clickEvaluate" data-item-uuid="{{item.uuuid}}">删除</text>
-                <text class="text-green" style="font-size: 26rpx;">预约成功</text>
-                <text class="text-gray" style="font-size: 26rpx;">已结束</text> -->
-            </view>
-        </view>
-    </view>
+                </block>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
 </view>

@@ -48,7 +48,8 @@
             </view>
         </view>
     </view>
-    <view class="btnBox">
-        <view bindtap="addService">立即报名</view>
+    <view class="btnBox" wx:if="{{dataListView.status==1}}">
+        <view bindtap="addService" wx:if="{{dataListView1==0}}">立即报名</view>
+        <view wx:else>已报名</view>
     </view>
 </view>
