@@ -45,6 +45,12 @@ Page({
             url: '../indexActiveView/index?uuid='+event.currentTarget.dataset.itemUuid+''
         })
     },
+    //评价
+    addEvaluate(){
+        wx.navigateTo({
+            url: '../indexMyEvaluate/index?uuid=' + this.data.uuid + ''
+        })
+    },
     onLoad: function (options) {
         var that = this;
         //设置标题

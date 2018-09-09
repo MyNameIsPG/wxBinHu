@@ -11,7 +11,7 @@
     </view>
 </view>
 <view>
-    <text class="iconBtn">立即发布</text>
+    <text bindtap="add" class="iconBtn">立即发布</text>
 </view>
 
 

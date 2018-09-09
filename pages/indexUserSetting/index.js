@@ -6,51 +6,26 @@ Page({
     data: {
         dateTime: '',
         form: {
-            type: '0',
-            date: '2018-05-04',
-            educational_level: '0',
-            identity: '0',
-            school_name1: '',
-            book_type: '0',
+            uuid: '',
+            head_url: '',
+            nick_name: '',
+            real_name: '',
             phone: '',
-            remark: ''
+            card_number: '',
+            birthday: '',
+            domicile: '',
+            industry: '',
+            vocation: '',
         },
-        type: [
-            '环境保护',
-            '老人关爱',
-            '手工课堂',
-            '科创园地',
-            '亲子活动',
-            '家电维修'
-        ],
-        book_type: [
-            '家电维修',
-            '水管维修',
-            '下水道维修',
-            '水龙头维修'
-        ]
     },
     changeDateTime(e) {
         this.setData({ dateTime: e.detail.value });
     },
-    //服务类型
-    bindEducationChange: function (e) {
-        var up = "form.type";
-        this.setData({
-            [up]: e.detail.value,
-        })
-    },
     //时间控件
     bindDateChange: function (e) {
-        var up = "form.date";
+        var up = "form.birthday";
         this.setData({
             [up]: e.detail.value
-        })
-    },
-    bindEducationChange1: function (e) {
-        var up = "form.book_type";
-        this.setData({
-            [up]: e.detail.value,
         })
     },
     onLoad() {
@@ -69,6 +44,34 @@ Page({
             dateTimeArray1: obj1.dateTimeArray,
             dateTime1: obj1.dateTime
         });
+        var that = this;
+        var app = getApp();
+        httpRequest.requestHeader("user/queryUser.do", { uuid: app.globalData.globalUserId}, function (data) {
+            if (data.status == 200) {
+                var uuid = "form.uuid";
+                var head_url = "form.head_url";
+                var nick_name = "form.nick_name";
+                var real_name = "form.real_name";
+                var phone = "form.phone";
+                var card_number = "form.card_number";
+                var birthday = "form.birthday";
+                var domicile = "form.domicile";
+                var industry = "form.industry";
+                var vocation = "form.vocation";
+                that.setData({
+                    [uuid]: data.data.uuid,
+                    [head_url]: data.data.head_url,
+                    [nick_name]: data.data.nick_name,
+                    [real_name]: data.data.real_name,
+                    [phone]: data.data.phone,
+                    [card_number]: data.data.card_number,
+                    [birthday]: data.data.birthday,
+                    [domicile]: data.data.domicile,
+                    [industry]: data.data.industry,
+                    [vocation]: data.data.vocation,
+                })
+            }
+        });
     },
 
 
@@ -80,33 +83,27 @@ Page({
     },
     submitForm(e) {
         const params = e.detail.value
-        console.log(params)
+        
         // 传入表单数据，调用验证方法
         if (!this.WxValidate.checkForm(params)) {
             const error = this.WxValidate.errorList[0]
             this.showModal(error)
             return false
         } else {
-            var arr = [
-                "153049720572388",
-                "153049724075277",
-                "153049725197393",
-                "153049726659970",
-                "153049728164352",
-                "153049730503275"
-            ]
-            var dateTimeArray = this.data.dateTimeArray;
-            var dateTime = this.data.dateTime;
-            var booking_time = dateTimeArray[0][dateTime[0]] + '-' + dateTimeArray[1][dateTime[1]] + '-' + dateTimeArray[2][dateTime[2]] + ' ' + dateTimeArray[3][dateTime[3]] + ':' + dateTimeArray[4][dateTime[4]] + ':' + dateTimeArray[5][dateTime[5]]
+            //var booking_time = dateTimeArray[0][dateTime[0]] + '-' + dateTimeArray[1][dateTime[1]] + '-' + dateTimeArray[2][dateTime[2]] + ' ' + dateTimeArray[3][dateTime[3]] + ':' + dateTimeArray[4][dateTime[4]] + ':' + dateTimeArray[5][dateTime[5]]
+            console.log(params)
             var data = {
-                type: arr[params.type],
-                address: params.domicile,
-                booking_time: booking_time,
+                uuid: this.data.form.uuid,
+                nick_name: params.nick_name,
+                real_name: params.real_name,
                 phone: params.phone,
-                remark: params.remark,
-                book_type: this.data.form.book_type
+                card_number: params.card_number     ,
+                birthday: params.birthday,
+                domicile: params.domicile,
+                industry: params.industry,
+                vocation: params.vocation,
             }
-            httpRequest.requestHeader("bookService/addBookingService.do", data, function (data) {
+            httpRequest.requestHeader("user/updateUser.do", data, function (data) {
                 if (data.status == 200) {
                     wx.showToast({
                         title: '提交成功！',
@@ -115,9 +112,9 @@ Page({
                         mask: true
                     });
                     setTimeout(function () {
-                        wx.navigateBack({
-                            delta: 1
-                        })
+                        if (getCurrentPages().length != 0) {
+                            getCurrentPages()[getCurrentPages().length - 1].onLoad()
+                        }
                     }, 1000) //延迟时间 
                 }
             });
@@ -140,9 +137,6 @@ Page({
                 required: '请输入联系电话',
                 tel: '请输入正确的联系电话'
             },
-            domicile: {
-                required: '请输入居住地址',
-            }
         }
         // 创建实例对象
         this.WxValidate = new WxValidate(rules, messages)

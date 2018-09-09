@@ -1,4 +1,4 @@
-// pages/user/user.js
+var httpRequest = require('../../utils/request.js');
 const app = getApp()
 
 Page({
@@ -6,6 +6,7 @@ Page({
         userInfo: [],
         globalRole: '',
         newsNum: '2',
+        phoneNumber: ''
     },
     //点击跳转事件
     clickIndexView: function (event) {
@@ -26,11 +27,23 @@ Page({
         })
     },
     onLoad: function (options) {
+        this.queryHotline();
         var app = getApp();
         this.setData({
             userInfo: app.globalData.userInfo,
             globalRole: app.globalData.globalRole
         })
+    },
+    //查询服务热线
+    queryHotline() {
+        var _this = this;
+        httpRequest.requestHeader("hotline/queryHotline.do", '', function (data) {
+            if (data.status == 200) {
+                _this.setData({
+                    phoneNumber: data.data.phone
+                })
+            }
+        });
     },
 
     /**

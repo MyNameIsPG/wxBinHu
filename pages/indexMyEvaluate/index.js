@@ -8,6 +8,26 @@ Page({
     data: {
         flag: 0
     },
+    resetStar: function () {
+        this.wxStarInit(0);
+    },
+    starChangeCb: function () {
+        this.wxStarInit
+    },
+    /*
+    * 发布
+    */
+    add(){
+        if(this.data.flag==0){
+            var length = this.wxStarCont();
+
+            debugger
+            wx.showModal({
+                content: '请打一个评分',
+                showCancel: false,
+            })
+        }
+    },
 
     /**
      * 生命周期函数--监听页面加载

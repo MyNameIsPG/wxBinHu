@@ -60,7 +60,7 @@
                     </view>
                 </view>
                 <view class="" style="padding: 10px 15px;">
-                    <textarea style="border: 1px solid #26a0f5; border-radius: 5px; padding: 10rpx; margin-left: -10rpx; font-size: 30rpx;" class="weui-textarea" name="remark" value="{{ form.remark }}" placeholder="请描述活动内容"></textarea>        
+                    <textarea style="border: 1px solid #26a0f5; border-radius: 5px; padding: 10rpx; margin-left: -10rpx; font-size: 30rpx;" class="weui-textarea" name="remark" value="{{ form.remark }}" placeholder="备注"></textarea>        
                 </view>
             </view>
             <view style="color: #999999; font-size: 20rpx; text-align: center; padding-top: 10px;">志愿队服务时间：09:00-12:00 14:00-19:00</view>

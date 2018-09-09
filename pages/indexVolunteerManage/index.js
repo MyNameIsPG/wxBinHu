@@ -9,11 +9,13 @@ Page({
     },
 
     //拒绝
-    refuse(){
+    refuse(event){
         var data = {
             uuid: event.currentTarget.dataset.itemUuid,
-            old_stauts: event.currentTarget.dataset.itemStauts
+            team_name: event.currentTarget.dataset.itemName,
+            old_stauts: event.currentTarget.dataset.itemStauts,
         }
+        var that = this;
         wx.showModal({
             title: '温馨提示',
             content: '是否拒绝该成员？',
@@ -21,19 +23,16 @@ Page({
                 if (res.confirm) {
                     httpRequest.requestHeader("volunteer/updateVolunteerStatusForRefuse.do", data, function (data) {
                         if (data.status == 200) {
-                            debugger
                             wx.showToast({
                                 title: '操作成功！',
                                 icon: 'succes',
                                 duration: 1000,
                                 mask: true
                             });
-                            // setTimeout(function () {
-                            //     //要延时执行的代码
-                            //     wx.navigateTo({
-                            //         url: '../index/index'
-                            //     })
-                            // }, 1000) //延迟时间 
+                            setTimeout(function () {
+                                //要延时执行的代码
+                                that.onLoad()
+                            }, 1000) //延迟时间 
                         }
                     });
                 } else {
@@ -46,8 +45,10 @@ Page({
     adopt(event) {
         var data = {
             uuid: event.currentTarget.dataset.itemUuid,
+            team_name: event.currentTarget.dataset.itemName,
             old_stauts: event.currentTarget.dataset.itemStauts
         }
+        var that = this;
         wx.showModal({
             title: '温馨提示',
             content: '是否通过该成员？',
@@ -55,19 +56,16 @@ Page({
                 if (res.confirm) {
                     httpRequest.requestHeader("volunteer/updateVolunteerStatusForPass.do", data, function (data) {
                         if (data.status == 200) {
-                            debugger
                             wx.showToast({
                                 title: '操作成功！',
                                 icon: 'succes',
                                 duration: 1000,
                                 mask: true
                             });
-                            // setTimeout(function () {
-                            //     //要延时执行的代码
-                            //     wx.navigateTo({
-                            //         url: '../index/index'
-                            //     })
-                            // }, 1000) //延迟时间 
+                            setTimeout(function () {
+                                //要延时执行的代码
+                                that.onLoad()
+                            }, 1000) //延迟时间 
                         }
                     });
                 } else {
@@ -93,6 +91,7 @@ Page({
         var data = {
             pageSize: 10,
             pageNum: 1,
+            stauts: 1
         }
         httpRequest.requestHeader("volunteer/queryVolunteerList.do", data, function (data) {
             if (data.status == 200) {

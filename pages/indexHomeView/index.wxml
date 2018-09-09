@@ -75,7 +75,7 @@
             <swiper-item>
                 <scroll-view scroll-y="true" class="scoll-h">
                     <view class="itemBox3">
-                        <view class="btnsAdd">
+                        <view class="btnsAdd" bindtap="addEvaluate">
                             <image src="../image/comment.png"></image>发表评论
                         </view>
                     </view>

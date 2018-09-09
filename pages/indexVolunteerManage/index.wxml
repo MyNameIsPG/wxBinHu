@@ -30,8 +30,8 @@
                 </view>
             </view>
             <view class="btnBox">
-                <text bindtap="refuse" class="red" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}">拒绝</text>
-                <text bindtap="adopt" class="green" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}">通过考核</text>
+                <text bindtap="refuse" class="red" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">拒绝</text>
+                <text bindtap="adopt" class="green" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">通过考核</text>
             </view>
         </view>
     </view>

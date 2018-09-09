@@ -2,7 +2,7 @@
     <view class="bannerContainer">
         <image src="../image/user/userBg.jpg"></image>
         <view class="settingBtn">
-            <image bindtap="clickIndexView2" src="../image/user/settingAddIcon.png"></image>
+            <!-- <image bindtap="clickIndexView2" src="../image/user/settingAddIcon.png"></image> -->
             <image bindtap="clickIndexView1" src="../image/user/settingIcon.png"></image>
         </view>
         <view class="userPhotoBox">
@@ -63,6 +63,6 @@
     </view>
     <view class="telBox">
         <text>滨湖社区服务热线</text>
-        <text>0731-77777777</text>
+        <text>{{phoneNumber}}</text>
     </view>
 </view>

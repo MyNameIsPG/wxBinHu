@@ -5,13 +5,9 @@
         <view class="list" wx:for="{{dataListView}}">
             <image src="../image/user/userPhoto.png"></image>
             <view class="contern">
-                <text class="name">名称 <text>30岁</text> </text>
-                <view class="itemType">
-                    <text>教育行业</text>
-                    <text>在职</text>
-                    <text>东一小区</text>
-                </view>
-                <text class="tims">加入时间：2018-07-05</text>
+                <text class="name">{{item.name}} <text wx:if="{{item.sex==1}}">男</text><text wx:else="{{item.sex==2}}">女</text></text>
+                <text class="tims">联系方式：{{item.phone}}</text>
+                <text class="tims">加入时间：{{item.create_time}}</text>
             </view>
         </view>
     </view>
