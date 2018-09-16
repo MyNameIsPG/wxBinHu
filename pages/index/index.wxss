@@ -1,3 +1,8 @@
+page {
+    height: 100%;
+    display: table;
+}
+
 .auth {
     margin-top: 0;
     text-align: center;
@@ -6,7 +11,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    padding: 360rpx 40px 0;
+    padding: 100rpx;
     vertical-align: middle;
 }
 
@@ -37,7 +42,7 @@
     width: 100%;
 }
 
-.btn {
+.btns {
     padding: 0 60rpx;
     background-color: #19be6b;
     margin: 20rpx 0 200rpx;
