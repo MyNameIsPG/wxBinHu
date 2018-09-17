@@ -5,7 +5,7 @@
 .wx-star{
   position: relative;
   float: left;
-  height: 50rpx;
+  height: 48rpx;
   margin: 10rpx;
   color: #ccc;
   text-align: center;

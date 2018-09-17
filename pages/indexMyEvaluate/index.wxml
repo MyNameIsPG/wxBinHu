@@ -7,16 +7,9 @@
         <template class="dd" is="wxStar" data="{{wxStar: wxStar}}" />
     </view>
     <view class="formBox">
-        <textarea placeholder="写点什么吧！" placeholder-style="color: #999999;"></textarea>
+        <textarea bindinput="valueConternBox" placeholder="写点什么吧！" name="valueContern" placeholder-style="color: #999999;"></textarea>
     </view>
 </view>
 <view>
     <text bindtap="add" class="iconBtn">立即发布</text>
 </view>
-
-
-
-<!-- <view class='btn-panel'>
-  <button class='btn' bindtap='resetStar'>重置</button>
-  <button class='btn' bindtap='alertStar'>获取当前星数</button>
-</view> -->

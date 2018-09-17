@@ -9,6 +9,8 @@ Page({
         uuid: '',
         dataListView: [],//查询详情
         dataListActive: [],//查询活动列表
+        dataListEvaluateList: [],//查询评论列表
+        markForTeam: '',//团队评价分数
     },
     // 滚动切换标签样式
     switchTab: function (e) {
@@ -68,17 +70,40 @@ Page({
                 });
             }
         });
+
+        this.pageInit(options.uuid)
+        
+    },
+    onShow: function(){
+        this.pageInit(this.data.uuid)
+    },
+    pageInit(uuid){
+        var that = this;
         //根据志愿者团队查询详情
-        httpRequest.requestHeader("volunteerTeam/queryVolunteerTeamByType.do", { type: options.uuid }, function (data) {
+        httpRequest.requestHeader("volunteerTeam/queryVolunteerTeamByType.do", { type: uuid }, function (data) {
             that.setData({
                 dataListView: data.data
             });
         });
 
         //根据志愿者团队查询活动列表
-        httpRequest.requestHeader("activity/queryActivityListByVolunteerTeam.do", { volunteer_team_id: options.uuid, pageSize: 10, pageNum: 1 }, function (data) {
+        httpRequest.requestHeader("activity/queryActivityListByVolunteerTeam.do", { volunteer_team_id: uuid, pageSize: 10, pageNum: 1 }, function (data) {
             that.setData({
                 dataListActive: data.data
+            });
+        });
+
+        //根据志愿者团队查询评论
+        httpRequest.requestHeader("evaluate/queryEvaluateList.do", { volunteer_team_id: uuid, pageSize: 100, pageNum: 1 }, function (data) {
+            that.setData({
+                dataListEvaluateList: data.data
+            });
+        });
+
+        //查询志愿者团队评价分数
+        httpRequest.requestHeader("evaluate/queryMarkForTeam.do", { volunteer_team_id: uuid }, function (data) {
+            that.setData({
+                markForTeam: data.data
             });
         });
     }

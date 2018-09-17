@@ -6,7 +6,7 @@
             wx:for-index="idx"
             wx:key="{{idx}}">
             <view
-                class='wx-half-star {{index==0?"wx-star-left":"wx-star-right"}} {{item==1?"wx-star-checked":""}}'
+                class='wx-half-star {{item==1?"wx-star-checked":""}}'
                 wx:for="{{starItem}}"
                 wx:key="{{index}}"
                 bindtap='wxStarChange'
