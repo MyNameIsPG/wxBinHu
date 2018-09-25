@@ -32,9 +32,7 @@ App({
     },
     globalData: {
         userInfo: null,
-        path: 'http://120.77.223.58:8080/wxbacksys/',
-        globalUserId: '',//用户id
-        globalRole: '',//用户身份1：普通用户  2：志愿者团队管理员  3:社区管理员
-        globalIsAuthentication: '',//实名情况1：是 2：否
+        path: 'https://www.xxsghp.cn/wxbacksys/',
+        globalUserId: '',//        globalIsAuthentication: '',//实名情况1：是 2：否
     }
 })

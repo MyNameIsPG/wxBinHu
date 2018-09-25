@@ -15,7 +15,6 @@
 }
 
 .MyVolunteerContainer .box .box-body view:nth-child(2) {
-    font-weight: bold;
     font-size: 15px;
     color: #333333;
     margin-bottom: 8px;

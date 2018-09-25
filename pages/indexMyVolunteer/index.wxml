@@ -14,8 +14,8 @@
                 <view>加入时间：{{item.create_time}}</view>
             </view>
             <view class="box-footer">
-                <text class="btn btn-red" bindtap="clickEvaluate">评价</text>
-                <text class="btn btn-default" bindtap="clickForOut">申请退出</text>
+                <!-- <text class="btn btn-red" bindtap="clickEvaluate">评价</text> -->
+                <text class="btn btn-default" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.type_name}}" bindtap="clickForOut">申请退出</text>
             </view>
         </view>
     </view>

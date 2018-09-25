@@ -13,13 +13,32 @@ Page({
     /**
      * 申请退出
      */
-    clickForOut: function () {
+    clickForOut: function (event) {
+        var data = {
+            uuid: event.currentTarget.dataset.itemUuid,
+            team_name: event.currentTarget.dataset.itemName,
+            old_stauts: event.currentTarget.dataset.itemStauts,
+        }
+        var that = this;
         wx.showModal({
             title: '温馨提示',
             content: '是否申请退出该服务？',
             success: function (res) {
                 if (res.confirm) {
-                    console.log('用户点击确定')
+                    httpRequest.requestHeader("volunteer/updateVolunteerStatusForBack.do", data, function (data) {
+                        if (data.status == 200) {
+                            wx.showToast({
+                                title: '操作成功！',
+                                icon: 'succes',
+                                duration: 1000,
+                                mask: true
+                            });
+                            setTimeout(function () {
+                                //要延时执行的代码
+                                that.onLoad()
+                            }, 1000) //延迟时间 
+                        }
+                    });
                 } else {
                     console.log('用户点击取消')
                 }
