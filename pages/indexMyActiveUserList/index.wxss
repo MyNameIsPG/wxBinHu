@@ -1,0 +1,12 @@
+/* pages/indexMyActiveUserList/index.wxss */
+.indexMyActiveUserList .list {
+    background: #fff;
+}
+.indexMyActiveUserList .list view {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 12px;
+    color: #333;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+}

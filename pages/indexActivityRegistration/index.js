@@ -13,8 +13,6 @@ Page({
     },
     onLoad: function (options) {
         this.initValidate()
-        console.log(this.WxValidate)
-
         var that = this;
         that.setData({
             uuid: options.uuid
@@ -66,12 +64,14 @@ Page({
             },
             age: {
                 required: true,
+                number: true,
             },
             address: {
                 required: true,
             },
             people_number: {
-                required: true
+                required: true,
+                number: true,
             }
         }
         // 验证字段的提示信息，若不传则调用默认的信息
@@ -81,12 +81,14 @@ Page({
             },
             age: {
                 required: '请输入年龄',
+                number: '请输入正确的年龄（数字）',
             },
             address: {
-                required: '请输入家庭地址',
+                required: '请输入地址',
             },
             people_number: {
                 required: '请输入报名人数',
+                number: '请输入正确的报名人数（数字）',
             }
         }
         // 创建实例对象

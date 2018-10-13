@@ -29,8 +29,8 @@
                 </li>
             </view>
             <view wx:elif="{{globalRole==2}}">
-                <li bindtap="clickIndexView" data-item-path="../indexVolunteerManage/index" data-item-title="志愿队管理">
-                    <image src="../image/user/icon1.png"></image> 志愿队管理
+                <li bindtap="clickIndexView" data-item-path="../indexVolunteerManage/index" data-item-title="志愿者管理">
+                    <image src="../image/user/icon1.png"></image> 志愿者管理
                 </li>
                 <li bindtap="clickIndexView" data-item-path="../indexMyActiveManage/index" data-item-title="活动管理">
                     <image src="../image/user/icon6.png"></image> 活动管理

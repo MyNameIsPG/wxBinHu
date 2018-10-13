@@ -29,7 +29,7 @@
                             </view>
                         </view>
                         <view class="tabbar2">
-                            <text class="btn btnUser" bindtap="clickEvaluate">查看报名人数</text>
+                            <text class="btn btnUser" data-item-uuid="{{item.uuid}}" bindtap="clickEvaluate">查看报名人数</text>
                         </view>
                         <!-- 审核失败 -->
                         <!-- <view class="tabbar4">您的身份不符合要求</view> -->

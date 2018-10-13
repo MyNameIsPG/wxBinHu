@@ -1,0 +1,8 @@
+<view class="indexMyActiveUserList">
+    <view class="list" wx:if="{{dataList.length>0}}">
+        <view wx:for="{{dataList}}">{{item.name}}</view>
+    </view>
+    <view class="pageTextCon" wx:else>
+        暂无数据
+    </view>
+</view>

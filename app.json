@@ -19,6 +19,7 @@
         "pages/indexNews/index",
         "pages/indexVolunteerManage/index",
         "pages/indexMyActiveManage/index",
+        "pages/indexMyActiveUserList/index",
         "pages/indexMakeManage/index",
         "pages/indexUserName/index",
         "pages/indexUserSetting/index",

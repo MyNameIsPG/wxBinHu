@@ -8,7 +8,24 @@ Page({
     data: {
         dataListView: [],
     },
-
+    
+    //拨打服务热线电话
+    clickTelUser: function (even) {
+        if (even.currentTarget.dataset.itemPhone!=''){
+            var _this = this;
+            var phoneNumber = even.currentTarget.dataset.itemPhone
+            wx.makePhoneCall({
+                phoneNumber: phoneNumber,
+                success: function () {
+                    console.log("拨打电话成功！")
+                },
+                fail: function () {
+                    console.log("拨打电话失败！")
+                }
+            })
+        }
+    },
+    
     /**
      * 生命周期函数--监听页面加载
      */
@@ -26,6 +43,8 @@ Page({
             });
         });
     },
+
+    
 
     /**
      * 生命周期函数--监听页面初次渲染完成

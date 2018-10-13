@@ -8,6 +8,11 @@ Page({
         scrollLeft: 0, //tab标题的滚动条位置
         dataList: []
     },
+    clickEvaluate(event){
+        wx.navigateTo({
+            url: '../indexMyActiveUserList/index?uuid=' + event.currentTarget.dataset.itemUuid + ''
+        })
+    },
     // 滚动切换标签样式
     switchTab: function (e) {
         this.setData({

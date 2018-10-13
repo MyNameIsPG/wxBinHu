@@ -122,9 +122,9 @@ Page({
                 required: true,
                 tel: true
             },
-            domicile: {
-                required: true
-            }
+            // domicile: {
+            //     required: true
+            // }
         }
         // 验证字段的提示信息，若不传则调用默认的信息
         const messages = {
@@ -132,9 +132,9 @@ Page({
                 required: '请输入联系电话',
                 tel: '请输入正确的联系电话'
             },
-            domicile: {
-                required: '请输入居住地址',
-            }
+            // domicile: {
+            //     required: '请输入居住地址',
+            // }
         }
         // 创建实例对象
         this.WxValidate = new WxValidate(rules, messages)

@@ -1,6 +1,7 @@
 <view class="listContainer">
     <view class="bannerContainer">
-        <image src="../image/banner1.png"></image>
+        <image wx:if="{{dataListView.pictureList[0].url!=''}}" src="{{dataListView.pictureList[0].url}}"></image>
+        <image wx:else src="../image/banner1.png"></image>
         <view class="evaluateBox">
             <image src="../image/evaluate.png"></image>
             <view>
