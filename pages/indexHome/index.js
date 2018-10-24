@@ -2,7 +2,15 @@ var httpRequest = require('../../utils/request.js');
 Page({
     data: {
         phoneNumber: '',
-        globalRoleData: ''
+        globalRoleData: '',
+        movies: [
+            { url: '../image/bg/1.jpg' },
+            { url: '../image/bg/2.jpg' },
+            { url: '../image/bg/3.jpg' },
+            { url: '../image/bg/4.jpg' },
+            { url: '../image/bg/5.jpg' },
+            { url: '../image/bg/6.jpg' }
+        ]
     },
     //页面跳转事件
     clickIndexView(event){

@@ -1,7 +1,13 @@
 <view class="indexHome">
     <view class="bgBanner"></view>
     <view class="bgBannerBox">
-        <image src="../image/banner.png"></image>
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="1000">  
+        <block wx:for="{{movies}}" wx:for-index="index">  
+            <swiper-item>  
+            <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
+            </swiper-item>  
+        </block>  
+        </swiper>
     </view>
     <view class="list">
         <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="环境保护" data-item-uuid="153049720572388">
