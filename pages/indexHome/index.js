@@ -3,14 +3,7 @@ Page({
     data: {
         phoneNumber: '',
         globalRoleData: '',
-        movies: [
-            { url: '../image/bg/1.jpg' },
-            { url: '../image/bg/2.jpg' },
-            { url: '../image/bg/3.jpg' },
-            { url: '../image/bg/4.jpg' },
-            { url: '../image/bg/5.jpg' },
-            { url: '../image/bg/6.jpg' }
-        ]
+        movies: []
     },
     //页面跳转事件
     clickIndexView(event){
@@ -24,10 +17,25 @@ Page({
             })
         }
     },
+    //查询轮播图
+    queryPictures() {
+        var _this = this;
+        httpRequest.requestHeader('pictures/query', {
+            pageSize: 100,
+            pageNum: 1,
+            flag: 1
+        }, function (data) {
+            if (data.status == 200) {
+                _this.setData({
+                    movies: data.data
+                })
+            }
+        });
+    },
     //查询服务热线
     queryHotline(){
         var _this = this;
-        httpRequest.requestHeader("hotline/queryHotline.do", '', function (data) {
+        httpRequest.requestHeader("hotline/queryHotline.do", { pageSize: 10, pageNum: 1, flag: 1}, function (data) {
             if(data.status==200){
                 _this.setData({
                     phoneNumber: data.data.phone
@@ -55,5 +63,9 @@ Page({
     },
     onShow: function (options) {
         this.queryHotline();
+        this.queryPictures();
+    },
+    onShareAppMessage: function () {
+        
     }
 })

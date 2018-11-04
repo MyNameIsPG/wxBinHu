@@ -1,0 +1,61 @@
+.box {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+
+.title {
+    border-bottom: 1px solid #cccccc;
+    font-size: 30rpx;
+    color: #333333;
+    font-weight: 600;
+    padding: 6px 0;
+}
+
+.contern > view {
+    overflow: hidden;
+    padding: 4rpx 0;
+}
+
+.contern > view view:nth-child(1) {
+    width: 50%;
+    float: left;
+    color: #333333;
+    font-size: 28rpx;
+}
+
+.contern > view view:nth-child(2) {
+    width: 50%;
+    float: left;
+    color: #666666;
+    font-size: 24rpx;
+}
+
+.btnBox {
+    overflow: hidden;
+    text-align: right;
+    border-top: 1px solid #cccccc;
+    padding: 14rpx 0;
+}
+
+.btnBox text {
+    width: 150rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 25rpx;
+    font-size: 24rpx;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.red {
+    color: #e3393c;
+    border: 1px solid #e3393c;
+}
+
+.green {
+    color: #32d34c;
+    border: 1px solid #32d34c;
+}

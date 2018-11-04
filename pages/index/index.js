@@ -23,6 +23,7 @@ Page({
                         };
                         httpRequest.request("xcxlogin/login.do", data, function (data) {
                             var app = getApp();
+                            console.log(data)
                             if (data.status == 200) {
                                 app.globalData.globalUserId = data.data.user_id
                                 app.globalData.globalRole = data.data.role

@@ -33,6 +33,18 @@ App({
     globalData: {
         userInfo: null,
         path: 'https://www.xxsghp.cn/wxbacksys/',
+        //path: 'http://localhost:8080/wxbacksys/',
         globalUserId: '',//        globalIsAuthentication: '',//实名情况1：是 2：否
+    },
+    onShareAppMessage: function () {
+        return {
+            title: '自定义分享标题22222222',
+            desc: '自定义分享描述2',
+            path: '/pages/index/index',
+            imageUrl: '/pages/images/banner.png',
+            success: function (e) {
+                conlose.log(e)
+            }
+        }
     }
 })

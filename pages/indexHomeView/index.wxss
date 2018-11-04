@@ -6,6 +6,15 @@
     overflow: hidden;
 }
 
+.swiper {
+  height: 100%;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+
 .bannerContainer {
     width: 100%;
     height: 210px;

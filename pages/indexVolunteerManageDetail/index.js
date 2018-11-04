@@ -9,7 +9,7 @@ Page({
     },
 
     //拒绝
-    refuse(event){
+    refuse(event) {
         var data = {
             uuid: event.currentTarget.dataset.itemUuid,
             team_name: event.currentTarget.dataset.itemName,
@@ -108,7 +108,7 @@ Page({
             }
         })
     },
-    
+
 
     //拒绝退出
     ForBackPass1(event) {

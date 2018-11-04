@@ -1,7 +1,13 @@
 <view class="listContainer">
     <view class="bannerContainer">
-        <image wx:if="{{dataListView.pictureList[0].url!=''}}" src="{{dataListView.pictureList[0].url}}"></image>
-        <image wx:else src="../image/banner1.png"></image>
+        <image wx:if="{{dataListView.pictureList.length==0}}" src="{{dataListView.pictureList[0].url}}"></image>
+        <swiper wx:else class="swiper" indicator-dots="true" autoplay="true" interval="2000" duration="1000">  
+        <block wx:for="{{dataListView.pictureList}}" wx:for-index="index">  
+            <swiper-item>  
+            <image src="{{item.url}}" class="slide-image" mode="aspectFill"/>  
+            </swiper-item>  
+        </block>  
+        </swiper>
         <view class="evaluateBox">
             <image src="../image/evaluate.png"></image>
             <view>
@@ -13,7 +19,7 @@
     <view>
         <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
             <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">团队简介</view>
-            <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">发起项目</view>
+            <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">活动列表</view>
             <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">用户评价</view>
         </scroll-view>
         <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}px">

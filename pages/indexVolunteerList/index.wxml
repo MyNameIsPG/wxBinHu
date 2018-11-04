@@ -1,14 +1,11 @@
-<!--pages/volunteerList/volunteerList.wxml-->
-<view class="volunteerListContainer">
+<view class="userContainer">
     <view wx:if="{{dataListView.length==0}}" class="pageTextCon">暂无数据</view>
-    <view wx:else>
-        <view class="list" wx:for="{{dataListView}}">
-            <image src="../image/user/userPhoto.png"></image>
-            <view class="contern" bindtap="clickTelUser" data-item-phone="{{item.phone}}">
-                <text class="name">{{item.name}} <text wx:if="{{item.sex==1}}">男</text><text wx:else="{{item.sex==2}}">女</text></text>
-                <text class="tims">联系方式：{{item.phone}}</text>
-                <text class="tims">加入时间：{{item.create_time}}</text>
+    <view class="userList" wx:else>
+        <ul>
+            <view>
+                <li wx:for="{{dataListView}}" bindtap="clickIndexView" data-item-title="{{item.volunteer_team_id}}">{{item.volunteer_team_name}}
+                </li>
             </view>
-        </view>
+        </ul>
     </view>
 </view>

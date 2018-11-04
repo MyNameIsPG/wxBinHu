@@ -4,32 +4,54 @@ Page({
 
     /**
      * 页面的初始数据
+     
+     
+     
+     
+     
+     
     */
     data: {
         dataListView: [],
     },
-    
+
     //拨打服务热线电话
-    clickIndexView: function (event) {
-        wx.navigateTo({
-            url: '../indexVolunteerListDetail/index?title=' + event.currentTarget.dataset.itemTitle
-        })
+    clickTelUser: function (even) {
+        if (even.currentTarget.dataset.itemPhone != '') {
+            var _this = this;
+            var phoneNumber = even.currentTarget.dataset.itemPhone
+            wx.makePhoneCall({
+                phoneNumber: phoneNumber,
+                success: function () {
+                    console.log("拨打电话成功！")
+                },
+                fail: function () {
+                    console.log("拨打电话失败！")
+                }
+            })
+        }
     },
-    
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
         //查询志愿者列表
         var that = this;
-        httpRequest.requestHeader("volunteerTeam/queryVolunteerTeamListForManager.do", '', function (data) {
+        var data = {
+            pageSize: 10,
+            pageNum: 1,
+            stautss: 2,
+            volunteer_team_id: options.title
+        }
+        httpRequest.requestHeader("volunteer/queryVolunteerList.do", data, function (data) {
             that.setData({
                 dataListView: data.data
             });
         });
     },
 
-    
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
