@@ -32,16 +32,6 @@ Page({
                     }
                 }
             })
-        } else if (e.detail.value.card_number.length != '18') {
-            wx.showModal({
-                title: '温馨提示',
-                content: '请输入18位身份证号码',
-                success: function (res) {
-                    if (res.confirm) {
-                        console.log('用户点击确定')
-                    }
-                }
-            })
         } else {
             var data = {
                 name: e.detail.value.name,

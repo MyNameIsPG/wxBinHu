@@ -30,15 +30,15 @@
                 </view>
             </view>
             <view class="btnBox" wx:if="{{item.stauts==1}}">
-                <text bindtap="refuse" class="red" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">拒绝</text>
-                <text bindtap="adopt" class="green" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">通过考核</text>
+                <text bindtap="refuse" class="red" data-item-uuid="{{item.uuid}}" data-item-user="{{item.user_id}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">拒绝</text>
+                <text bindtap="adopt" class="green" data-item-uuid="{{item.uuid}}" data-item-user="{{item.user_id}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">通过考核</text>
             </view>
               <view class="btnBox" wx:if="{{item.stauts==4}}">
-                <text bindtap="ForBackPass" class="red" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">拒绝退出</text>
-                <text bindtap="ForBackPass1" class="green" data-item-uuid="{{item.uuid}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">同意退出</text>
+                <text bindtap="ForBackPass" class="red" data-item-uuid="{{item.uuid}}" data-item-user="{{item.user_id}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">拒绝退出</text>
+                <text bindtap="ForBackPass1" class="green" data-item-uuid="{{item.uuid}}" data-item-user="{{item.user_id}}" data-item-stauts="{{item.stauts}}" data-item-name="{{item.volunteer_team_name}}">同意退出</text>
             </view>
             <view class="btnBox" wx:if="{{item.stauts==3}}">
-                <text bindtap="refuse" class="red">已拒绝</text>
+                <text bindtap="" class="red">已拒绝</text>
             </view>
         </view>
     </view>

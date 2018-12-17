@@ -12,6 +12,7 @@ Page({
     refuse(event){
         var data = {
             uuid: event.currentTarget.dataset.itemUuid,
+            user_id: event.currentTarget.dataset.itemUser,
             team_name: event.currentTarget.dataset.itemName,
             old_stauts: event.currentTarget.dataset.itemStauts,
         }
@@ -45,6 +46,7 @@ Page({
     adopt(event) {
         var data = {
             uuid: event.currentTarget.dataset.itemUuid,
+            user_id: event.currentTarget.dataset.itemUser,
             team_name: event.currentTarget.dataset.itemName,
             old_stauts: event.currentTarget.dataset.itemStauts
         }
@@ -79,6 +81,7 @@ Page({
     ForBackPass(event) {
         var data = {
             uuid: event.currentTarget.dataset.itemUuid,
+            user_id: event.currentTarget.dataset.itemUser,
             team_name: event.currentTarget.dataset.itemName,
             old_stauts: event.currentTarget.dataset.itemStauts
         }
@@ -114,6 +117,7 @@ Page({
     ForBackPass1(event) {
         var data = {
             uuid: event.currentTarget.dataset.itemUuid,
+            user_id: event.currentTarget.dataset.itemUser,
             team_name: event.currentTarget.dataset.itemName,
             old_stauts: event.currentTarget.dataset.itemStauts
         }

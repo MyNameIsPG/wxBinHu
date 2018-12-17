@@ -28,6 +28,10 @@ Page({
                                 app.globalData.globalUserId = data.data.user_id
                                 app.globalData.globalRole = data.data.role
                                 app.globalData.globalIsAuthentication = data.data.is_authentication
+                                wx.navigateTo({
+                                    url: '../indexHome/index'
+                                })
+                                /*
                                 if (data.data.is_authentication == "2") {
                                     wx.showModal({
                                         title: '温馨提示',
@@ -52,11 +56,9 @@ Page({
                                         url: '../indexHome/index'
                                     })
                                 }
+                                */
                             }
                         })
-
-
-
                     }
                 })
             }

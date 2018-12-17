@@ -1,4 +1,5 @@
 import WxValidate from '../../utils/WxValidate.js'
+var dateTimePicker = require('../../utils/dateTimePicker.js');
 var httpRequest = require('../../utils/request.js');
 const App = getApp()
 Page({

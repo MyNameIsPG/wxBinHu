@@ -32,7 +32,7 @@ Page({
     //申请志愿者
     addVolunteer() {
         wx.navigateTo({
-            url: '../indexAddVolunteer/index?uuid='+this.data.uuid+''
+            url: '../indexAddVolunteer/index?uuid=' + this.data.dataListView.uuid+''
         })
     },
     //预约服务

@@ -25,9 +25,9 @@
             <image src="../image/home/icon4.png"></image>
             <view>科创乐园</view>
         </view>
-        <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="亲子乐园" data-item-uuid="153049728164352">
+        <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="乐学园" data-item-uuid="153049728164352">
             <image src="../image/home/icon5.png"></image>
-            <view>亲子乐园</view>
+            <view>乐学园</view>
         </view>
         <view bindtap="clickIndexView" data-item-path="../indexHomeView/index" data-item-title="家电维修" data-item-uuid="153049730503275">
             <image src="../image/home/icon6.png"></image>
