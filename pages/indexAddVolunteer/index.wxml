@@ -28,7 +28,7 @@
                         <view class="weui-label">出生年月</view>
                     </view>
                     <view class="weui-cell__bd">
-                        <picker name="date" mode="date" bindchange="bindDateChange" start="1990-01-01" end="2025-12-30" value="{{ form.date }}">
+                        <picker name="date" mode="date" bindchange="bindDateChange" start="190    0-01-01" end="2055-12-30" value="{{ form.date }}">
                             <view class="weui-select weui-select_in-select-after">{{ form.date }}</view>
                         </picker>
                     </view>
